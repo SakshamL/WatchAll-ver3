@@ -20,20 +20,27 @@
   flex: 1;
 }
 
+.logo a {
+  text-decoration: none;
+  color: #ced0d1;
+}
+
 .navigation-menu {
   list-style: none;
   display: flex;
   flex: 2;
 }
 
-.navigation-menu li {
+.navigation-menu li a {
   padding: 0 25px;
   background-color: transparent;
   font-weight: bold;
+  text-decoration: none;
+  color: #ced0d1;
 }
 
 .navigation-menu li:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   /* text-shadow: 2px 2px 4px rgba(215, 192, 182, 0.76); */
   color: #fff;
   /* background-color: #333; */
