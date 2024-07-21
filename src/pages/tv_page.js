@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../modules/header";
 
-function tv_page() {
+function tvpage() {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ function tv_page() {
   );
 }
 
-export default tv_page;
+export default tvpage;

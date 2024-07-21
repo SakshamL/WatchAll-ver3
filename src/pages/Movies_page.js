@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../modules/header";
 
-function Movies_page() {
+function Moviespage() {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ function Movies_page() {
   );
 }
 
-export default Movies_page;
+export default Moviespage;
