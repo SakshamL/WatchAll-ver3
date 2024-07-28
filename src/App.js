@@ -7,8 +7,24 @@ import Moviespage from "./pages/Movies_page.js";
 import Tvpage from "./pages/tv_page.js";
 import Favourites from "./pages/Favourites.js";
 import Categories from "./pages/Categories.js";
+import { useState, useEffect } from "react";
+import movies_api from "./APIURL.js";
 
 function App() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  const getMovies = async () => {
+    const response = await fetch(movies_api.movies);
+    const responseJSON = await response.json();
+
+    setMovies(responseJSON.results);
+    // console.log(responseJSON);
+  };
+
   return (
     <div className="App">
       <Routes>
@@ -19,8 +35,8 @@ function App() {
               <Header />
               <br></br>
               <Banner />
-              <Movies title="Latest Movies" />
-              <Movies title="Latest TV Shows" />
+              <Movies title="Latest Movies" movie={movies} />
+              <Movies title="Latest TV Shows" movie={movies} />
               <p style={{ color: "white" }}>kjahfjasfjagfahfkahfjkahfahsf</p>;
             </>
           }
