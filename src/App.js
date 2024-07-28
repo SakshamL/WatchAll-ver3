@@ -12,9 +12,11 @@ import movies_api from "./APIURL.js";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [tv_shows, setTvshows] = useState([]);
 
   useEffect(() => {
     getMovies();
+    getTvShows();
   }, []);
 
   const getMovies = async () => {
@@ -22,6 +24,14 @@ function App() {
     const responseJSON = await response.json();
 
     setMovies(responseJSON.results);
+    // console.log(responseJSON);
+  };
+
+  const getTvShows = async () => {
+    const response = await fetch(movies_api.tv_shows);
+    const responseJSON = await response.json();
+
+    setTvshows(responseJSON.results);
     // console.log(responseJSON);
   };
 
@@ -36,7 +46,7 @@ function App() {
               <br></br>
               <Banner />
               <Movies title="Latest Movies" movie={movies} />
-              <Movies title="Latest TV Shows" movie={movies} />
+              <Movies title="Latest TV Shows" movie={tv_shows} />
               <p style={{ color: "white" }}>kjahfjasfjagfahfkahfjkahfahsf</p>;
             </>
           }

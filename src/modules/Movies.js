@@ -10,15 +10,21 @@ const Movies = (props) => {
       </div>
       <div className="posters-row">
         <div className="poster-container">
-          {props.movie.map((item, index) => (
-            <>
-              <img
-                className="posters-img"
-                src={IMGPATH + item.poster_path}
-                alt="poster-img"
-              />
-            </>
-          ))}
+          {props.movie.map((item, index) => {
+            if (item.poster_path !== null) {
+              return (
+                <>
+                  <img
+                    className="posters-img"
+                    src={IMGPATH + item.poster_path}
+                    alt="poster-img"
+                  />
+                </>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
     </div>
