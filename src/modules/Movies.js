@@ -11,14 +11,39 @@ const Movies = (props) => {
       <div className="posters-row">
         <div className="poster-container">
           {props.movie.map((item, index) => {
-            if (item.poster_path !== null) {
+            if (item.poster_path !== null && props.title === "Latest Movies") {
               return (
                 <>
-                  <img
-                    className="posters-img"
-                    src={IMGPATH + item.poster_path}
-                    alt="poster-img"
-                  />
+                  <div className="content_card">
+                    <img
+                      className="posters-img"
+                      src={IMGPATH + item.poster_path}
+                      alt="poster-img"
+                    />
+                    <span className="content_title">{item.title}</span>
+                  </div>
+                </>
+              );
+            } else {
+              return null;
+            }
+          })}
+
+          {props.movie.map((item, index) => {
+            if (
+              item.poster_path !== null &&
+              props.title === "Latest TV Shows"
+            ) {
+              return (
+                <>
+                  <div className="content_card">
+                    <img
+                      className="posters-img"
+                      src={IMGPATH + item.poster_path}
+                      alt="poster-img"
+                    />
+                    <span className="content_title">{item.name}</span>
+                  </div>
                 </>
               );
             } else {
