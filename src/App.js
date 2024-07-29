@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     getMovies();
     getTvShows();
+    // console.log(g1.getTime());
   }, []);
 
   const getMovies = async () => {
@@ -34,6 +35,8 @@ function App() {
     setTvshows(responseJSON.results);
     // console.log(responseJSON);
   };
+
+  // let g1 = new Date();
 
   return (
     <div className="App">

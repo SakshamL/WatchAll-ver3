@@ -10,10 +10,10 @@ const Movies = (props) => {
       </div>
       <div className="posters-row">
         <div className="poster-container">
-          {props.movie.map((item, index) => {
+          {props.movie.map((item) => {
             if (item.poster_path !== null && props.title === "Latest Movies") {
               return (
-                <>
+                <React.Fragment key={item.id}>
                   <div className="content_card">
                     <img
                       className="posters-img"
@@ -22,21 +22,21 @@ const Movies = (props) => {
                     />
                     <span className="content_title">{item.title}</span>
                   </div>
-                </>
+                </React.Fragment>
               );
             } else {
               return null;
             }
           })}
 
-          {props.movie.map((item, index) => {
+          {props.movie.map((item) => {
             if (
               item.poster_path !== null &&
               props.title === "Latest TV Shows"
             ) {
               return (
-                <>
-                  <div className="content_card">
+                <React.Fragment key={item.id}>
+                  <div key={item.id} className="content_card">
                     <img
                       className="posters-img"
                       src={IMGPATH + item.poster_path}
@@ -44,7 +44,7 @@ const Movies = (props) => {
                     />
                     <span className="content_title">{item.name}</span>
                   </div>
-                </>
+                </React.Fragment>
               );
             } else {
               return null;
