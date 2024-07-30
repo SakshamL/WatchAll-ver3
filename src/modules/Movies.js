@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Movies.css";
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
@@ -14,14 +15,16 @@ const Movies = (props) => {
             if (item.poster_path !== null && props.title === "Latest Movies") {
               return (
                 <React.Fragment key={item.id}>
-                  <div className="content_card">
-                    <img
-                      className="posters-img"
-                      src={IMGPATH + item.poster_path}
-                      alt="poster-img"
-                    />
-                    <span className="content_title">{item.title}</span>
-                  </div>
+                  <Link to={`/movie/${item.id}`}>
+                    <div className="content_card">
+                      <img
+                        className="posters-img"
+                        src={IMGPATH + item.poster_path}
+                        alt="poster-img"
+                      />
+                      <span className="content_title">{item.title}</span>
+                    </div>
+                  </Link>
                 </React.Fragment>
               );
             } else {
@@ -36,14 +39,16 @@ const Movies = (props) => {
             ) {
               return (
                 <React.Fragment key={item.id}>
-                  <div key={item.id} className="content_card">
-                    <img
-                      className="posters-img"
-                      src={IMGPATH + item.poster_path}
-                      alt="poster-img"
-                    />
-                    <span className="content_title">{item.name}</span>
-                  </div>
+                  <Link to={`/tv/${item.id}`}>
+                    <div key={item.id} className="content_card">
+                      <img
+                        className="posters-img"
+                        src={IMGPATH + item.poster_path}
+                        alt="poster-img"
+                      />
+                      <span className="content_title">{item.name}</span>
+                    </div>
+                  </Link>
                 </React.Fragment>
               );
             } else {

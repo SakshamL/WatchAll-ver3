@@ -7,6 +7,8 @@ import Moviespage from "./pages/Movies_page.js";
 import Tvpage from "./pages/tv_page.js";
 import Favourites from "./pages/Favourites.js";
 import Categories from "./pages/Categories.js";
+import MovieDetails from "./pages/MovieDetails.js";
+import TvDetails from "./pages/TvDetails.js";
 import { useState, useEffect } from "react";
 import movies_api from "./APIURL.js";
 
@@ -58,6 +60,8 @@ function App() {
         <Route path="/tv_page" element={<Tvpage />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/tv/:id" element={<TvDetails />} />
       </Routes>
     </div>
   );
