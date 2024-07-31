@@ -15,7 +15,7 @@
 
 .posters-row {
   width: 100%;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   overflow-y: hidden;
   position: relative;
 }
@@ -26,6 +26,7 @@
 
 .poster-container {
   display: flex;
+  flex-wrap: wrap;
   z-index: 10;
 }
 
@@ -49,6 +50,7 @@
   transition: 0.2s all ease;
   border-radius: 10px;
   padding: 10px;
+  overflow: hidden;
 }
 
 .content_card:hover {

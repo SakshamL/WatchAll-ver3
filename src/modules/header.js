@@ -27,6 +27,8 @@ function Header() {
           </li>
         </ul>
 
+        <input type="text" />
+
         <ul className="login-menu">
           <li>Login</li>
           <li>Register</li>

@@ -8,6 +8,7 @@ const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
 const Details = () => {
   const [movie, setMovie] = useState({});
+  // const [genre, setGenre] = useState(movie.genres);
 
   const params = useParams();
 
@@ -22,7 +23,8 @@ const Details = () => {
 
   useEffect(() => {
     getMovie();
-  });
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>
@@ -46,7 +48,22 @@ const Details = () => {
               <span className="movie-title">{movie.title}</span>
               <p>Release Date: {movie.release_date}</p>
               <br></br>
-              <p>Overview: {movie.overview}</p>
+              <p> {movie.overview}</p>
+              <br></br>
+              <p>Runtime: {movie.runtime} minutes</p>
+              <br></br>
+              <p>Vote Average: {movie.vote_average}</p>
+              <div className="genre_container">
+                {movie.genres
+                  ? movie.genres.map((gen) => {
+                      return (
+                        <p className="genres" key={gen.id}>
+                          {gen.name}
+                        </p>
+                      );
+                    })
+                  : ""}
+              </div>
             </div>
           </div>
         </div>
