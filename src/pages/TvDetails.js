@@ -24,13 +24,68 @@ function TvDetails() {
   return (
     <>
       <Header />
-      <div key={tv.id} className="content_card">
-        <img
-          className="posters-img"
-          src={IMGPATH + tv.poster_path}
-          alt="poster-img"
-        />
-        <span className="content_title">{tv.name}</span>
+      <div className="details-container">
+        <div className="backdrop-container">
+          {tv.backdrop_path !== null ? (
+            <img
+              className="backdrop-img"
+              src={IMGPATH + tv.backdrop_path}
+              alt="banner"
+            />
+          ) : (
+            <img
+              className="backdrop-img"
+              src="/images/default_backdrop.jpg"
+              alt="default-backdrop"
+            />
+          )}
+        </div>
+        <div className="details-body-container">
+          <div className="poster-img-container">
+            <img
+              className="details-poster-img"
+              src={IMGPATH + tv.poster_path}
+              alt="poster-img"
+            />
+            <div className="details-container">
+              <span className="movie-title">{tv.name}</span>
+              <p>First Air Date: {tv.first_air_date}</p>
+              <br></br>
+              <p> {tv.overview}</p>
+              <br></br>
+              <p>Runtime: {tv.runtime} minutes</p>
+              <br></br>
+              <p>Vote Average: {tv.vote_average}</p>
+              <div className="genre_container">
+                {tv.genres
+                  ? tv.genres.map((gen) => {
+                      return (
+                        <p className="genres" key={gen.id}>
+                          {gen.name}
+                        </p>
+                      );
+                    })
+                  : ""}
+              </div>
+
+              <div className="genre_container">
+                {tv.seasons
+                  ? tv.seasons.map((sen) => {
+                      return (
+                        <p className="genres" key={sen.id}>
+                          {sen.name}
+                        </p>
+                      );
+                    })
+                  : ""}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <br></br>
+        <br></br>
+        <br></br> */}
+        <p style={{ color: "white" }}>jhasfbjsbj</p>
       </div>
     </>
   );

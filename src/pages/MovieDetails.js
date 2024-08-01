@@ -31,11 +31,19 @@ const Details = () => {
       <Header />
       <div className="details-container">
         <div className="backdrop-container">
-          <img
-            className="backdrop-img"
-            src={IMGPATH + movie.backdrop_path}
-            alt="banner"
-          />
+          {movie.backdrop_path !== null ? (
+            <img
+              className="backdrop-img"
+              src={IMGPATH + movie.backdrop_path}
+              alt="banner"
+            />
+          ) : (
+            <img
+              className="backdrop-img"
+              src="/images/default_backdrop.jpg"
+              alt="default-backdrop"
+            />
+          )}
         </div>
         <div className="details-body-container">
           <div className="poster-img-container">
