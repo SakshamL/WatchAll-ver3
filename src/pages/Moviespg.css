@@ -1,0 +1,18 @@
+.movies-pg-container {
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  gap: 50px;
+}
+
+.movies-cat-sidebar {
+  flex-grow: 0.5;
+  /* background-color: red; */
+  border-right: 2px solid rgba(128, 128, 128, 0.281);
+}
+
+.movies-pg-list {
+  flex: 5;
+  /* background-color: blue; */
+}
