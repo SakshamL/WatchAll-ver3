@@ -22,13 +22,23 @@
   width: inherit;
   padding: 10px;
   border: 1px solid #0d171d;
+  max-height: 80vh;
+  overflow-y: scroll;
   /* background-color: blue; */
+}
+
+.search-results-container::-webkit-scrollbar {
+  display: none;
 }
 
 .search-results {
   display: flex;
-  width: 100%;
-  background-color: rgba(128, 128, 128, 0.434);
+  /* width: 100%; */
+  border-bottom: 1px solid rgba(128, 128, 128, 0.418);
+  padding: 10px;
+  transition: 0.3s all ease-in-out;
+
+  /* background-color: rgba(128, 128, 128, 0.434); */
 }
 
 .search-results-poster {

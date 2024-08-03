@@ -36,7 +36,7 @@ function SearchBar() {
           onChange={(event) => setValue(event.target.value)}
           value={value}
           type="text"
-          placeholder="Search Here"
+          placeholder="Search Movies and Tv Shows..."
         />
         <div className="search-results-container">
           {/* afasfs */}
