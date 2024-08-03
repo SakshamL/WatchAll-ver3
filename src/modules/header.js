@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 function Header() {
   return (
@@ -27,7 +28,7 @@ function Header() {
           </li>
         </ul>
 
-        <input type="text" />
+        <SearchBar />
 
         <ul className="login-menu">
           <li>Login</li>

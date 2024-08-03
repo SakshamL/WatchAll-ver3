@@ -26,6 +26,11 @@ const Details = () => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    getMovie();
+    // eslint-disable-next-line
+  }, [params]);
+
   return (
     <>
       <Header />

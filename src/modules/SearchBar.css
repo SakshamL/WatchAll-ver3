@@ -1,0 +1,36 @@
+.search-container {
+  position: relative;
+  width: 300px;
+  margin-right: 50px;
+  z-index: 2;
+}
+
+.searchbar::placeholder {
+  color: #ffffff4d;
+}
+
+.searchbar {
+  color: #ffffffad;
+  width: inherit;
+  padding: 10px;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, 0.418);
+}
+
+.search-results-container {
+  position: absolute;
+  width: inherit;
+  padding: 10px;
+  border: 1px solid #0d171d;
+  /* background-color: blue; */
+}
+
+.search-results {
+  display: flex;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.434);
+}
+
+.search-results-poster {
+  width: 50px;
+}
