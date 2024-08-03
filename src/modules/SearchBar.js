@@ -15,12 +15,22 @@ function SearchBar() {
   }, [value]);
 
   const getMovieSearch = async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/search/multi?query=${value}&api_key=04c35731a5ee918f014970082a0088b1`
-    );
-    const responseJSON = await response.json();
-    // console.log(responseJSON.results);
-    setSearchResult(responseJSON.results);
+    if (value.split(" ").length >= 2) {
+      const spacevalue = value.split(" ").join("%20");
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/multi?query=${spacevalue}&api_key=04c35731a5ee918f014970082a0088b1`
+      );
+      const responseJSON = await response.json();
+
+      setSearchResult(responseJSON.results);
+    } else {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/multi?query=${value}&api_key=04c35731a5ee918f014970082a0088b1`
+      );
+      const responseJSON = await response.json();
+
+      setSearchResult(responseJSON.results);
+    }
   };
 
   const clearsearch = () => {
@@ -78,6 +88,22 @@ function SearchBar() {
                       {/* {searchedMedia.push(item)} */}
                     </div>
                   </Link>
+                ) : (
+                  ""
+                )}
+                {(item.media_type === "person") &
+                (item.profile_path !== null) ? (
+                  <div className="search-results">
+                    <img
+                      className="search-results-poster"
+                      src={IMGPATH + item.profile_path}
+                      alt="poster"
+                    />
+                    <p>{item.name}</p>
+                    <br></br>
+                    <p>{item.media_type}</p>
+                    {/* {searchedMedia.push(item)} */}
+                  </div>
                 ) : (
                   ""
                 )}
