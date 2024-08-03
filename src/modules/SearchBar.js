@@ -10,14 +10,13 @@ function SearchBar() {
   const [searchResult, setSearchResult] = useState([]);
 
   useEffect(() => {
-    // console.log(value);
     getMovieSearch();
     // eslint-disable-next-line
   }, [value]);
 
   const getMovieSearch = async () => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${value}&api_key=04c35731a5ee918f014970082a0088b1`
+      `https://api.themoviedb.org/3/search/multi?query=${value}&api_key=04c35731a5ee918f014970082a0088b1`
     );
     const responseJSON = await response.json();
     // console.log(responseJSON.results);
@@ -39,13 +38,13 @@ function SearchBar() {
           placeholder="Search Movies and Tv Shows..."
         />
         <div className="search-results-container">
-          {/* afasfs */}
-
           {searchResult.map((item) => {
             return (
               <React.Fragment key={item.id}>
-                {(item.original_language === "hi") |
-                (item.original_language === "en") ? (
+                {(item.media_type === "movie") &
+                (item.poster_path !== null) &
+                ((item.original_language === "hi") |
+                  (item.original_language === "en")) ? (
                   <Link to={`/movie/${item.id}`}>
                     <div className="search-results" onClick={clearsearch}>
                       <img
@@ -54,6 +53,29 @@ function SearchBar() {
                         alt="poster"
                       />
                       <p>{item.title}</p>
+                      <br></br>
+                      <p>{item.media_type}</p>
+                      {/* {searchedMedia.push(item)} */}
+                    </div>
+                  </Link>
+                ) : (
+                  ""
+                )}
+                {(item.media_type === "tv") &
+                (item.poster_path !== null) &
+                ((item.original_language === "hi") |
+                  (item.original_language === "en")) ? (
+                  <Link to={`/tv/${item.id}`}>
+                    <div className="search-results" onClick={clearsearch}>
+                      <img
+                        className="search-results-poster"
+                        src={IMGPATH + item.poster_path}
+                        alt="poster"
+                      />
+                      <p>{item.name}</p>
+                      <br></br>
+                      <p>{item.media_type}</p>
+                      {/* {searchedMedia.push(item)} */}
                     </div>
                   </Link>
                 ) : (
@@ -62,13 +84,6 @@ function SearchBar() {
               </React.Fragment>
             );
           })}
-          {/* <div className="search-results">
-            <img
-              className="search-results-poster"
-              src="/images/poster-1.jpg"
-              alt="poster"
-            />
-          </div> */}
         </div>
       </div>
     </>

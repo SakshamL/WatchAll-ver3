@@ -27,18 +27,35 @@
   /* background-color: blue; */
 }
 
+.search-results-container a {
+  text-decoration: none;
+}
+
 .search-results-container::-webkit-scrollbar {
   display: none;
 }
 
 .search-results {
   display: flex;
+  gap: 10px;
+  color: white;
   /* width: 100%; */
   border-bottom: 1px solid rgba(128, 128, 128, 0.418);
   padding: 10px;
   transition: 0.3s all ease-in-out;
 
   /* background-color: rgba(128, 128, 128, 0.434); */
+}
+
+.search-results:hover {
+  background-color: #393939ac;
+  transition: 0.3s all ease-in-out;
+
+  /* background-color: rgba(128, 128, 128, 0.434); */
+}
+
+.search-results p {
+  background-color: transparent;
 }
 
 .search-results-poster {
