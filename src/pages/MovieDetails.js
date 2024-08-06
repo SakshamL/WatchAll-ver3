@@ -80,6 +80,13 @@ const Details = () => {
             </div>
           </div>
         </div>
+        <iframe
+          title={movie.title}
+          width="100%"
+          height="500px"
+          src={"https://www.2embed.cc/embed/" + movie.id}
+          allowFullScreen
+        ></iframe>
         {/* <br></br>
         <br></br>
         <br></br> */}

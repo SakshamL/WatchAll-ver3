@@ -3,7 +3,7 @@
   margin: 0 auto;
   color: white;
   display: flex;
-  gap: 50px;
+  /* gap: 50px; */
 }
 
 .movies-cat-sidebar {
