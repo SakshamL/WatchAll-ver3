@@ -17,6 +17,7 @@ const Details = () => {
       `https://api.themoviedb.org/3/movie/${params.id}?api_key=04c35731a5ee918f014970082a0088b1`
     );
     const responseJSON = await response.json();
+    document.title = "Movie | " + responseJSON.title;
 
     setMovie(responseJSON);
   };

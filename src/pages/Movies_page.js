@@ -29,6 +29,7 @@ function Moviespage() {
   useEffect(() => {
     getMovies();
     getGenres();
+    document.title = "Movies | WatchAll";
   }, []);
 
   const getMovies = async () => {

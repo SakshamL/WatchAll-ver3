@@ -82,6 +82,13 @@ function TvDetails() {
             </div>
           </div>
         </div>
+        <iframe
+          title={tv.name}
+          width="100%"
+          height="500px"
+          src={"https://hnembed.cc/embed/tv/" + tv.id}
+          allowFullScreen
+        ></iframe>
         {/* <br></br>
         <br></br>
         <br></br> */}

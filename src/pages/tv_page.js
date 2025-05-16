@@ -13,6 +13,7 @@ function Tvpage() {
 
   useEffect(() => {
     getTV();
+    document.title = "TV Shows | WatchAll";
   }, []);
 
   const getTV = async () => {
